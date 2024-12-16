@@ -1,8 +1,9 @@
+import { IProduct } from "@/app/admin/dashboard/page";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: IProduct = {
   _id: "",
-  imgScr: "",
+  imgSrc: "",
   fileKey: "",
   name: "",
   price: "",
