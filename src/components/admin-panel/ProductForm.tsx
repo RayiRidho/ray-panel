@@ -2,6 +2,7 @@
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { makeToast } from "@/utils/helper";
+import { UploadButton } from "@/utils/uploadthing";
 import axios from "axios";
 import { error } from "console";
 import Image from "next/image";
@@ -55,6 +56,22 @@ const ProductForm = () => {
         width={800}
         height={500}
         alt="product_image"
+      />
+
+      <UploadButton
+        endpoint="imageUploader"
+        onClientUploadComplete={(res) => {
+          console.log(res);
+
+          setPayload({
+            ...payload,
+            imgSrc: res[0]?.url,
+            fileKey: res[0]?.key,
+          });
+        }}
+        onUploadError={(error: Error) => {
+          console.log("ERROR! ${error}");
+        }}
       />
     </form>
   );
