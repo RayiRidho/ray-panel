@@ -2,7 +2,6 @@ import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { makeToast } from "@/utils/helper";
 import axios from "axios";
-import { error } from "console";
 import React, { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
