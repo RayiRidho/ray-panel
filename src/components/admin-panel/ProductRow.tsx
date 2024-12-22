@@ -43,7 +43,7 @@ const ProductRow = ({
         console.log(res.data);
 
         axios
-          .delete("/api/delete_product/${product._id}")
+          .delete(`/api/delete_product/${product._id}`)
           .then((res) => {
             console.log(res.data);
             makeToast("Product Deleted Successfully");
