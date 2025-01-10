@@ -2,6 +2,7 @@ import { useAppSelector } from "@/redux/hook";
 import React, { Dispatch, SetStateAction } from "react";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
+import { useEffect, useState } from "react";
 
 interface PropsType {
   setShowCart: Dispatch<SetStateAction<boolean>>;
@@ -9,17 +10,23 @@ interface PropsType {
 
 const Navbar = ({ setShowCart }: PropsType) => {
   const cartCount = useAppSelector((state) => state.cartReducer.length);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => setIsClient(true), []);
 
   return (
     <div className="pt-4 bg-white top-0 sticky">
       <div className="container">
         <div className="flex justify-between items-center">
-          <div className="text-4x1 font-bold">Logo</div>
+          <div>
+            <img className="size-12 rounded-lg " src="/logo.jpg" alt="logo" />
+          </div>
           <div className="lg:flex hidden w-full max-w-[500px]">
             <input
               className="border-2 border-accent px-6 py-2 w-full"
               type="text"
               placeholder="Search for Products..."
+              suppressHydrationWarning
             />
 
             <div className="bg-accent text-white text-[26px] grid place-items-center px-4">
